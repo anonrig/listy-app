@@ -15,11 +15,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg.jpg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
-
