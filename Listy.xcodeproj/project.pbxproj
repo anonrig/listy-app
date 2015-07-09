@@ -16,8 +16,6 @@
 		F14E888F1B4EEA4900177916 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E888E1B4EEA4900177916 /* FBSDKCoreKit.framework */; };
 		F14E88911B4EEA5200177916 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E88901B4EEA5200177916 /* FBSDKLoginKit.framework */; };
 		F14E88951B4EECDB00177916 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E88941B4EECDA00177916 /* WelcomeViewController.swift */; };
-		F14E889A1B4EF7A800177916 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F14E88991B4EF7A800177916 /* bg.jpg */; };
-		F14E889E1B4EFB3C00177916 /* connect.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F14E889D1B4EFB3C00177916 /* connect.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +43,6 @@
 		F14E888E1B4EEA4900177916 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F14E88901B4EEA5200177916 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F14E88941B4EECDA00177916 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		F14E88991B4EF7A800177916 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
-		F14E889D1B4EFB3C00177916 /* connect.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = connect.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +93,6 @@
 				F14E886F1B4EE9EE00177916 /* LoginViewController.swift */,
 				F14E88941B4EECDA00177916 /* WelcomeViewController.swift */,
 				F14E88711B4EE9EE00177916 /* Main.storyboard */,
-				F14E889D1B4EFB3C00177916 /* connect.jpeg */,
-				F14E88991B4EF7A800177916 /* bg.jpg */,
 				F14E88741B4EE9EE00177916 /* Images.xcassets */,
 				F14E88761B4EE9EE00177916 /* LaunchScreen.xib */,
 				F14E886B1B4EE9EE00177916 /* Supporting Files */,
@@ -212,9 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14E88731B4EE9EE00177916 /* Main.storyboard in Resources */,
-				F14E889E1B4EFB3C00177916 /* connect.jpeg in Resources */,
 				F14E88781B4EE9EE00177916 /* LaunchScreen.xib in Resources */,
-				F14E889A1B4EF7A800177916 /* bg.jpg in Resources */,
 				F14E88751B4EE9EE00177916 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +357,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/bcanvural/Documents/FacebookSDK,
+					/Users/anonrig/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Listy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -380,6 +373,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/bcanvural/Documents/FacebookSDK,
+					/Users/anonrig/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Listy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -441,6 +435,7 @@
 				F14E88891B4EE9EE00177916 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F14E888A1B4EE9EE00177916 /* Build configuration list for PBXNativeTarget "ListyTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +444,7 @@
 				F14E888C1B4EE9EE00177916 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

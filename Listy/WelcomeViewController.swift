@@ -14,15 +14,9 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = false
         self.navigationItem.hidesBackButton = true;
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    
-
 }
