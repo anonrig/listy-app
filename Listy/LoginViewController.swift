@@ -13,11 +13,12 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func connectPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("LoginToWelcome", sender: self)
+        self.navigationController?.performSegueWithIdentifier("LoginToWelcome", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBarHidden = true;
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg.jpg")!)
     }
     
