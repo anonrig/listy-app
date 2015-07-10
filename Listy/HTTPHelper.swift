@@ -4,6 +4,7 @@ import Foundation
 enum HTTPRequestAuthType {
     case HTTPBasicAuth
     case HTTPTokenAuth
+    case FBTokenAuth
 }
 
 enum HTTPRequestContentType {
@@ -53,6 +54,11 @@ struct HTTPHelper {
                 
                 // Set Authorization header
                 request.addValue("Token token=\(userToken!)", forHTTPHeaderField: "Authorization")
+            case .FBTokenAuth:
+                //Retreive FB Auth Token
+                var fbToken : String = FBSDKAccessToken.currentAccessToken().tokenString
+                // Set Authorization header
+                request.addValue("Token token=\(fbToken)", forHTTPHeaderField: "Authorization")
             }
             
             return request

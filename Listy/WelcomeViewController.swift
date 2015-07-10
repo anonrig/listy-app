@@ -35,7 +35,7 @@ class WelcomeViewController: UIViewController {
     func sendFBTokens(access_token:String, refresh_token:String){
         // Create HTTP request and set request Body
         let httpRequest = httpHelper.buildRequest("SOME_API_URL", method: "POST",
-            authType: HTTPRequestAuthType.HTTPTokenAuth)
+            authType: HTTPRequestAuthType.FBTokenAuth)
         
         httpRequest.HTTPBody = "{\"access_token\":\"\(access_token)\",\"refresh_token\":\"\(refresh_token)\"}".dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -57,7 +57,7 @@ class WelcomeViewController: UIViewController {
     func getProfileInfo() {
         // Create HTTP request and set request Body
         let httpRequest = httpHelper.buildRequest("SOME_API_URL", method: "GET",
-            authType: HTTPRequestAuthType.HTTPTokenAuth)
+            authType: HTTPRequestAuthType.FBTokenAuth)
         
         httpRequest.HTTPBody = "".dataUsingEncoding(NSUTF8StringEncoding);
         
