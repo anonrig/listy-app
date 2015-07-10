@@ -7,7 +7,7 @@
         <!--Login View Controller-->
         <scene sceneID="MsF-Jv-M2k">
             <objects>
-                <viewController id="iO1-uN-wa7" customClass="LoginViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="iO1-uN-wa7" customClass="LoginViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2g1-kL-oGa"/>
                         <viewControllerLayoutGuide type="bottom" id="Zhb-lZ-UTu"/>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="473.5" y="280.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Controller-->
         <scene sceneID="Jdr-UZ-33B">
             <objects>
-                <navigationController id="7yE-J7-Gro" sceneMemberID="viewController">
+                <navigationController id="7yE-J7-Gro" customClass="NavController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7CW-ZA-fMc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -78,7 +78,6 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="iO1-uN-wa7" kind="relationship" relationship="rootViewController" id="Gjc-kX-Vzz"/>
                         <segue destination="4cc-C6-IIm" kind="show" identifier="LoginToWelcome" id="ftF-zi-Ue2"/>
                     </connections>
                 </navigationController>
@@ -89,7 +88,7 @@
         <!--Welcome-->
         <scene sceneID="vcA-fw-0cx">
             <objects>
-                <viewController title="Welcome" id="4cc-C6-IIm" customClass="WelcomeViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" title="Welcome" id="4cc-C6-IIm" customClass="WelcomeViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9n-XD-a7R"/>
                         <viewControllerLayoutGuide type="bottom" id="z3J-dz-6Ce"/>
@@ -125,11 +124,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="prv-mz-hPG">
                                 <rect key="frame" x="177" y="341" width="20" height="20"/>
                             </activityIndicatorView>
-
                         </subviews>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

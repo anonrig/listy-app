@@ -5,15 +5,13 @@ class LoginViewController: UIViewController {
     @IBAction func connectPressed(sender: AnyObject) {
         self.login()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
-        if ((FBSDKAccessToken.currentAccessToken()) != nil) {
-            // User is logged in, do work such as go to next view controller.
-            self.navigationController?.performSegueWithIdentifier("LoginToWelcome", sender: self)
-        }
     }
+    
     func login(){
         var login : FBSDKLoginManager = FBSDKLoginManager()
         login.logInWithReadPermissions(["email"], handler: { (result : FBSDKLoginManagerLoginResult!, error :NSError!) -> Void in
