@@ -18,6 +18,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var staticTextTop: UILabel!  // "People in front of you"
     @IBOutlet weak var staticTextBottom: UILabel! //"People behind you"
     
+    let httpHelper = HTTPHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,45 @@ class WelcomeViewController: UIViewController {
         self.ProfileImage.layer.borderWidth = 4.0;
     }
     
+    func sendFBTokens(access_token:String, refresh_token:String){
+        // Create HTTP request and set request Body
+        let httpRequest = httpHelper.buildRequest("SOME_API_URL", method: "POST",
+            authType: HTTPRequestAuthType.HTTPTokenAuth)
+        
+        httpRequest.HTTPBody = "{\"access_token\":\"\(access_token)\",\"refresh_token\":\"\(refresh_token)\"}".dataUsingEncoding(NSUTF8StringEncoding);
+        
+        httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
+            // Display error
+            if error != nil {
+                let errorMessage = self.httpHelper.getErrorMessage(error)
+                return
+            }
+            var jsonerror:NSError?
+            let responseDict = NSJSONSerialization.JSONObjectWithData(data,
+                options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as! NSDictionary
+            var stopBool : Bool
+            
+            println(data)
+        })
+    }
+    
+    func getProfileInfo() {
+        // Create HTTP request and set request Body
+        let httpRequest = httpHelper.buildRequest("SOME_API_URL", method: "GET",
+            authType: HTTPRequestAuthType.HTTPTokenAuth)
+        
+        httpRequest.HTTPBody = "".dataUsingEncoding(NSUTF8StringEncoding);
+        
+        httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
+            // Display error
+            if error != nil {
+                let errorMessage = self.httpHelper.getErrorMessage(error)
+                return
+            }
+            println(data)
+        })
+    }
+
     //toggle display of user info before and after we pull data from FB
     func hideUserInfo(shouldHide:Bool){
         self.ProfileImage.hidden = shouldHide
