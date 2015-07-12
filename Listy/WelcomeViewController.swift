@@ -61,8 +61,21 @@ class WelcomeViewController: UIViewController {
         })
     }
     
+    //segue from left
     func goToLoginView(){
-        self.performSegueWithIdentifier("WelcomeToLogin", sender: self)
+        
+        var mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let source : UIViewController = self
+        let destination : LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+        
+        var transition : CATransition = CATransition()
+        transition.duration = 0.25;
+        transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut);
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromLeft;
+        source.navigationController?.view.layer.addAnimation(transition, forKey: kCATransition)
+        
+        source.navigationController?.pushViewController(destination, animated: false)
     }
     
     func updateProfileImage(url:String){

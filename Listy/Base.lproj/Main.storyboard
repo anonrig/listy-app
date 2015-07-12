@@ -132,7 +132,6 @@
                         <outlet property="frontNum" destination="YiJ-Gb-F6h" id="kDK-Zv-B0E"/>
                         <outlet property="staticTextBottom" destination="u7J-65-6ZR" id="5hO-mu-gE9"/>
                         <outlet property="staticTextTop" destination="BPh-Fg-ehl" id="6kP-S5-m59"/>
-                        <segue destination="iO1-uN-wa7" kind="show" identifier="WelcomeToLogin" id="V2N-Tu-tdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFD-d1-Quv" userLabel="First Responder" sceneMemberID="firstResponder"/>
