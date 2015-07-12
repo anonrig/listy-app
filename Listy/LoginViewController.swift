@@ -49,17 +49,18 @@ class LoginViewController: UIViewController {
             if error != nil {
                 let errorMessage = self.httpHelper.getErrorMessage(error)
                 println(errorMessage);
+                //TODO LOGout
                 return
             }
             
             self.navigationController?.performSegueWithIdentifier("LoginToWelcome", sender: self)
             
-            var jsonerror:NSError?
-            let responseDict = NSJSONSerialization.JSONObjectWithData(data,
-                options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as! NSDictionary
-            var stopBool : Bool
+            var token:String = JSON(data:data)["token"].stringValue
+            KeychainAccess.setPassword(token, account: "jwt-token", service: "KeyChainService")
             
-            println(data)
+            
+            
+            
         })
     }
     

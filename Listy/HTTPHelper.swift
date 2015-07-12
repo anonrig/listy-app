@@ -37,13 +37,13 @@ struct HTTPHelper {
             switch authType {
             case .HTTPTokenAuth:
                 // Retreieve Auth_Token from Keychain
-                var userToken : NSString? = KeychainAccess.passwordForAccount("Auth_Token", service: "KeyChainService")
+                var userToken : NSString? = KeychainAccess.passwordForAccount("jwt-token", service: "KeyChainService")
                 if userToken == nil {
                     userToken = ""
                 }
                 
                 // Set Authorization header
-                request.addValue("Token token=\(userToken!)", forHTTPHeaderField: "Authorization")
+                request.addValue("token \(userToken!)", forHTTPHeaderField: "Authorization")
             case .FBTokenAuth:
                 //Retreive FB Auth Token
                 var fbToken : String = FBSDKAccessToken.currentAccessToken().tokenString

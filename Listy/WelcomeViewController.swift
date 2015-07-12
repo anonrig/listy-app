@@ -24,20 +24,13 @@ class WelcomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.hidesBackButton = true;
         
-        self.ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.height/2;
-        self.ProfileImage.layer.masksToBounds = true;
-        self.ProfileImage.layer.borderWidth = 0.1;
-        
-        self.ProfileImage.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).CGColor;
-        self.ProfileImage.layer.borderWidth = 4.0;
-        
         self.getProfileInfo();
     }
     
     func getProfileInfo() {
         // Create HTTP request and set request Body
         let httpRequest = httpHelper.buildRequest("accounts/me", method: "GET",
-            authType: HTTPRequestAuthType.FBTokenAuth)
+            authType: HTTPRequestAuthType.HTTPTokenAuth)
         
         httpRequest.HTTPBody = "".dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -54,13 +47,30 @@ class WelcomeViewController: UIViewController {
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
 
+
                 return
             }
-            println(data)
+            var jsonData : JSON = JSON(data:data)
+            println(jsonData)
+            
+            self.updateProfileImage(jsonData["facebook"]["photo"].stringValue+"&width=400&height=400")
             
             self.hideUserInfo(false);
             self.activityIndicator.hidden = true
         })
+    }
+    
+    func updateProfileImage(url:String){
+        let url = NSURL(string: url)
+        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        self.ProfileImage.image = UIImage(data: data!)
+        //round corners, style the image
+        self.ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.height/2;
+        self.ProfileImage.layer.masksToBounds = true;
+        self.ProfileImage.layer.borderWidth = 0.1;
+        
+        self.ProfileImage.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).CGColor;
+        self.ProfileImage.layer.borderWidth = 4.0;
     }
 
     //toggle display of user info before and after we pull data from FB
