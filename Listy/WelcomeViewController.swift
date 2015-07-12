@@ -51,6 +51,8 @@ class WelcomeViewController: UIViewController {
             println(jsonData)
             
             self.updateProfileImage(jsonData["facebook"]["photo"].stringValue+"&width=400&height=400")
+            self.frontNum.text = jsonData["line"].stringValue
+            
             
             self.hideUserInfo(false);
             self.activityIndicator.hidden = true
