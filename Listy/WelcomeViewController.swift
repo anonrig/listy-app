@@ -41,7 +41,9 @@ class WelcomeViewController: UIViewController {
                 
                 let alertController = UIAlertController(title: "Sorry", message:
                     "Failed to connect to Listy servers", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: {(action)->Void in
+                    self.goToLoginView()
+                }))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
 
@@ -53,10 +55,13 @@ class WelcomeViewController: UIViewController {
             self.updateProfileImage(jsonData["facebook"]["photo"].stringValue+"&width=400&height=400")
             self.frontNum.text = jsonData["line"].stringValue
             
-            
             self.hideUserInfo(false);
             self.activityIndicator.hidden = true
         })
+    }
+    
+    func goToLoginView(){
+        self.performSegueWithIdentifier("WelcomeToLogin", sender: self)
     }
     
     func updateProfileImage(url:String){
