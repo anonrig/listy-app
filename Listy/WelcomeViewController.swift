@@ -5,10 +5,8 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var ProfileImage: UIImageView!
     @IBOutlet weak var frontNum: UILabel! //number of people in front of the user
-    @IBOutlet weak var behindNum: UILabel! //number of people behind the user
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var staticTextTop: UILabel!  // "People in front of you"
-    @IBOutlet weak var staticTextBottom: UILabel! //"People behind you"
     
     let httpHelper = HTTPHelper()
     
@@ -47,7 +45,6 @@ class WelcomeViewController: UIViewController {
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
 
-
                 return
             }
             var jsonData : JSON = JSON(data:data)
@@ -77,9 +74,7 @@ class WelcomeViewController: UIViewController {
     func hideUserInfo(shouldHide:Bool){
         self.ProfileImage.hidden = shouldHide
         self.frontNum.hidden = shouldHide
-        self.behindNum.hidden = shouldHide
         self.staticTextTop.hidden = shouldHide
-        self.staticTextBottom.hidden = shouldHide
     }
     
     override func didReceiveMemoryWarning() {

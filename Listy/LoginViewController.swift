@@ -7,6 +7,7 @@ class LoginViewController: UIViewController {
     }
     
     let httpHelper = HTTPHelper()
+    var loginManager : FBSDKLoginManager = FBSDKLoginManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,8 +16,7 @@ class LoginViewController: UIViewController {
     }
     
     func login(){
-        var login : FBSDKLoginManager = FBSDKLoginManager()
-        login.logInWithReadPermissions(["email"], handler: { (result : FBSDKLoginManagerLoginResult!, error :NSError!) -> Void in
+        loginManager.logInWithReadPermissions(["email"], handler: { (result : FBSDKLoginManagerLoginResult!, error :NSError!) -> Void in
             if ((error) != nil || result.isCancelled) {
                 // Process error
                 
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
                 
-                login.logOut();
+                self.loginManager.logOut();
                 
                 println("error");
             } else {
@@ -49,7 +49,15 @@ class LoginViewController: UIViewController {
             if error != nil {
                 let errorMessage = self.httpHelper.getErrorMessage(error)
                 println(errorMessage);
-                //TODO LOGout
+                
+                let alertController = UIAlertController(title: "Sorry", message:
+                    "Failed to connect to Listy servers", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+
+                self.loginManager.logOut();
+                
                 return
             }
             
