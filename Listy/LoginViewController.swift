@@ -6,6 +6,8 @@ class LoginViewController: UIViewController {
         self.login()
     }
     
+    let httpHelper = HTTPHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
@@ -15,18 +17,49 @@ class LoginViewController: UIViewController {
     func login(){
         var login : FBSDKLoginManager = FBSDKLoginManager()
         login.logInWithReadPermissions(["email"], handler: { (result : FBSDKLoginManagerLoginResult!, error :NSError!) -> Void in
-            if ((error) != nil) {
+            if ((error) != nil || result.isCancelled) {
                 // Process error
-                println("error")
-            } else if (result.isCancelled) {
-                // Handle cancellations
-                println("Cancelled")
+                
+                let alertController = UIAlertController(title: "Sorry", message:
+                    "Failed to connect to Facebook servers", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                login.logOut();
+                
+                println("error");
             } else {
                 // If you ask for multiple permissions at once, you should check if specific permissions missing
                 if (result.grantedPermissions.contains("email")){
-                    self.navigationController?.performSegueWithIdentifier("LoginToWelcome", sender: self)
+                    self.sendFBTokens(result.token.tokenString);
                 }
             }
+        })
+    }
+    
+    func sendFBTokens(access_token:String){
+        let httpRequest = httpHelper.buildRequest("accounts/facebook", method: "POST",
+            authType: HTTPRequestAuthType.FBTokenAuth)
+        
+        httpRequest.HTTPBody = "{\"access_token\":\"\(access_token)\"}".dataUsingEncoding(NSUTF8StringEncoding);
+        
+        httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
+            // Display error
+            if error != nil {
+                let errorMessage = self.httpHelper.getErrorMessage(error)
+                println(errorMessage);
+                return
+            }
+            
+            self.navigationController?.performSegueWithIdentifier("LoginToWelcome", sender: self)
+            
+            var jsonerror:NSError?
+            let responseDict = NSJSONSerialization.JSONObjectWithData(data,
+                options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as! NSDictionary
+            var stopBool : Bool
+            
+            println(data)
         })
     }
     

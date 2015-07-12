@@ -30,33 +30,13 @@ class WelcomeViewController: UIViewController {
         
         self.ProfileImage.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).CGColor;
         self.ProfileImage.layer.borderWidth = 4.0;
-    }
-    
-    func sendFBTokens(access_token:String, refresh_token:String){
-        // Create HTTP request and set request Body
-        let httpRequest = httpHelper.buildRequest("SOME_API_URL", method: "POST",
-            authType: HTTPRequestAuthType.FBTokenAuth)
         
-        httpRequest.HTTPBody = "{\"access_token\":\"\(access_token)\",\"refresh_token\":\"\(refresh_token)\"}".dataUsingEncoding(NSUTF8StringEncoding);
-        
-        httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
-            // Display error
-            if error != nil {
-                let errorMessage = self.httpHelper.getErrorMessage(error)
-                return
-            }
-            var jsonerror:NSError?
-            let responseDict = NSJSONSerialization.JSONObjectWithData(data,
-                options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as! NSDictionary
-            var stopBool : Bool
-            
-            println(data)
-        })
+        self.getProfileInfo();
     }
     
     func getProfileInfo() {
         // Create HTTP request and set request Body
-        let httpRequest = httpHelper.buildRequest("SOME_API_URL", method: "GET",
+        let httpRequest = httpHelper.buildRequest("accounts/me", method: "GET",
             authType: HTTPRequestAuthType.FBTokenAuth)
         
         httpRequest.HTTPBody = "".dataUsingEncoding(NSUTF8StringEncoding);
@@ -65,9 +45,21 @@ class WelcomeViewController: UIViewController {
             // Display error
             if error != nil {
                 let errorMessage = self.httpHelper.getErrorMessage(error)
+                
+                println("error getting user information");
+                
+                let alertController = UIAlertController(title: "Sorry", message:
+                    "Failed to connect to Listy servers", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+
                 return
             }
             println(data)
+            
+            self.hideUserInfo(false);
+            self.activityIndicator.hidden = true
         })
     }
 
