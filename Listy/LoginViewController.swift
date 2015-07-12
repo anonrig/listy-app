@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
     }
     
     func login(){
@@ -24,7 +23,9 @@ class LoginViewController: UIViewController {
                     "Failed to connect to Facebook servers", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                 
-                self.presentViewController(alertController, animated: true, completion: nil)
+                if (!result.isCancelled) {
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
                 
                 self.loginManager.logOut();
                 
