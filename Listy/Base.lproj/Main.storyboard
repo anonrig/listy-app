@@ -130,6 +130,7 @@
                         <outlet property="ProfileImage" destination="z65-8F-J1Z" id="B1x-OG-3ya"/>
                         <outlet property="activityIndicator" destination="prv-mz-hPG" id="DSi-8L-rJX"/>
                         <outlet property="frontNum" destination="YiJ-Gb-F6h" id="kDK-Zv-B0E"/>
+                        <outlet property="staticTextBottom" destination="u7J-65-6ZR" id="5hO-mu-gE9"/>
                         <outlet property="staticTextTop" destination="BPh-Fg-ehl" id="6kP-S5-m59"/>
                         <segue destination="iO1-uN-wa7" kind="show" identifier="WelcomeToLogin" id="V2N-Tu-tdq"/>
                     </connections>

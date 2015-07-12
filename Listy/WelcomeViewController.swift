@@ -8,6 +8,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var staticTextTop: UILabel!  // "People in front of you"
     
+    @IBOutlet weak var staticTextBottom: UILabel!
     let httpHelper = HTTPHelper()
     
     override func viewDidLoad() {
@@ -82,6 +83,7 @@ class WelcomeViewController: UIViewController {
         self.ProfileImage.hidden = shouldHide
         self.frontNum.hidden = shouldHide
         self.staticTextTop.hidden = shouldHide
+        self.staticTextBottom.hidden = shouldHide
     }
     
     override func didReceiveMemoryWarning() {
