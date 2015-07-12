@@ -13,10 +13,7 @@ enum HTTPRequestContentType {
 }
 
 struct HTTPHelper {
-    static let API_AUTH_NAME = "BITIRME"
-    static let API_AUTH_PASSWORD = "yrfafyqteweaqsddteefqddqfwrtysfrqreqqeafyrtssftayrsrrqetytyeefqr"
-    //static let BASE_URL = "https://gentle-stream-7806.herokuapp.com/api"
-    static let BASE_URL = "http://127.0.0.1:3000/api"
+    static let BASE_URL = "http://127.0.0.1:3001"
     
     func buildRequest(path: String!, method: String, authType: HTTPRequestAuthType,
         requestContentType: HTTPRequestContentType = HTTPRequestContentType.HTTPJsonContent, requestBoundary:NSString = "") -> NSMutableURLRequest {
@@ -38,13 +35,6 @@ struct HTTPHelper {
             
             // 3. Set the correct Authorization header.
             switch authType {
-            case .HTTPBasicAuth:
-                // Set BASIC authentication header
-                let basicAuthString = "\(HTTPHelper.API_AUTH_NAME):\(HTTPHelper.API_AUTH_PASSWORD)"
-                let utf8str = basicAuthString.dataUsingEncoding(NSUTF8StringEncoding)
-                let base64EncodedString = utf8str?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(0))
-                
-                request.addValue("Basic \(base64EncodedString!)", forHTTPHeaderField: "Authorization")
             case .HTTPTokenAuth:
                 // Retreieve Auth_Token from Keychain
                 var userToken : NSString? = KeychainAccess.passwordForAccount("Auth_Token", service: "KeyChainService")
@@ -59,45 +49,48 @@ struct HTTPHelper {
                 var fbToken : String = FBSDKAccessToken.currentAccessToken().tokenString
                 // Set Authorization header
                 request.addValue("Token token=\(fbToken)", forHTTPHeaderField: "Authorization")
+            default:
+                println("default");
             }
             
             return request
     }
     
     func sendRequest(request: NSURLRequest, completion:(NSData!, NSError!) -> Void) -> () {
-        // Create a NSURLSession task
         let session = NSURLSession.sharedSession()
+        
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
             if error != nil {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(data, error)
                 })
                 
-                return
+                return;
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let httpResponse = response as! NSHTTPURLResponse
+                
                 println(httpResponse.statusCode)
+                
                 if httpResponse.statusCode == 200 {
                     completion(data, nil)
                 } else {
                     var jsonerror:NSError?
-                    let errorDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as! NSDictionary
                     
-                    let responseError : NSError = NSError(domain: "HTTPHelperError", code: httpResponse.statusCode, userInfo: errorDict as [NSObject : AnyObject])
-                    completion(data, responseError)
+                    if let errorDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as? NSDictionary {
+                        let responseError : NSError = NSError(domain: "HTTPHelperError", code: httpResponse.statusCode, userInfo: errorDict as? [NSObject : AnyObject])
+                        completion(data, responseError)
+                    }
                 }
-            })
+            });
         }
         
-        // start the task
         task.resume()
     }
     func getErrorMessage(error: NSError) -> NSString {
         var errorMessage : NSString
         
-        // return correct error message
         if error.domain == "HTTPHelperError" {
             let userInfo = error.userInfo as NSDictionary!
             errorMessage = userInfo.valueForKey("message") as! NSString
