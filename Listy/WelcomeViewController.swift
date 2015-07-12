@@ -1,5 +1,6 @@
 
 import UIKit
+import Social // for facebook share
 
 class WelcomeViewController: UIViewController {
     
@@ -10,6 +11,7 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var staticTextBottom: UILabel!
     let httpHelper = HTTPHelper()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,26 +37,35 @@ class WelcomeViewController: UIViewController {
     func shareAction(){
         
         println("Share")
-        // 1
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         
-        // 2
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
         let fbShareAction = UIAlertAction(title: "Share on Facebook", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Share on FB")
+            // Open Facebook App if there is one
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                
+                self.presentViewController(fbShare, animated: true, completion: nil)
+                
+            } else {
+                var content : FBSDKShareLinkContent = FBSDKShareLinkContent()
+                content.contentURL = NSURL(string: "http://www.youtube.com")
+                content.contentDescription = "I'm the number \((self.frontNum.text?.toInt()!)! + 1) on the list!"
+                content.contentTitle = "Listy"
+                FBSDKShareDialog.showFromViewController(self, withContent:content, delegate: nil)
+            }
         })
         
-        //
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Cancelled")
         })
         
-        // 4
         optionMenu.addAction(fbShareAction)
         optionMenu.addAction(cancelAction)
         
-        // 5
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
@@ -129,6 +140,7 @@ class WelcomeViewController: UIViewController {
         self.frontNum.hidden = shouldHide
         self.staticTextTop.hidden = shouldHide
         self.staticTextBottom.hidden = shouldHide
+        self.navigationItem.rightBarButtonItem?.enabled = !shouldHide
     }
     
     override func didReceiveMemoryWarning() {
