@@ -26,6 +26,38 @@ class WelcomeViewController: UIViewController {
         self.getProfileInfo();
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let shareButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareAction")
+        self.navigationItem.rightBarButtonItem = shareButton;
+    }
+    
+    func shareAction(){
+        
+        println("Share")
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        // 2
+        let fbShareAction = UIAlertAction(title: "Share on Facebook", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Share on FB")
+        })
+        
+        //
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Cancelled")
+        })
+        
+        // 4
+        optionMenu.addAction(fbShareAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
     func getProfileInfo() {
         // Create HTTP request and set request Body
         let httpRequest = httpHelper.buildRequest("accounts/me", method: "GET",
