@@ -16,6 +16,7 @@
 		F14E888F1B4EEA4900177916 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E888E1B4EEA4900177916 /* FBSDKCoreKit.framework */; };
 		F14E88911B4EEA5200177916 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E88901B4EEA5200177916 /* FBSDKLoginKit.framework */; };
 		F14E88951B4EECDB00177916 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E88941B4EECDA00177916 /* WelcomeViewController.swift */; };
+		F1837E831B5262FA00C7DB90 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1837E821B5262FA00C7DB90 /* SwiftyJSON.swift */; };
 		F1B5B91B1B505559004FC7D0 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */; };
 		F1B5B91D1B5055DE004FC7D0 /* KeyChainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */; };
 		F1B5B9201B5061BC004FC7D0 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91F1B5061BC004FC7D0 /* NavController.swift */; };
@@ -46,6 +47,7 @@
 		F14E888E1B4EEA4900177916 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F14E88901B4EEA5200177916 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F14E88941B4EECDA00177916 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		F1837E821B5262FA00C7DB90 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
 		F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainAccess.swift; sourceTree = "<group>"; };
 		F1B5B91F1B5061BC004FC7D0 /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */,
 				F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */,
 				F1B5B91F1B5061BC004FC7D0 /* NavController.swift */,
+				F1837E821B5262FA00C7DB90 /* SwiftyJSON.swift */,
 				F14E88711B4EE9EE00177916 /* Main.storyboard */,
 				F14E88741B4EE9EE00177916 /* Images.xcassets */,
 				F14E88761B4EE9EE00177916 /* LaunchScreen.xib */,
@@ -239,6 +242,7 @@
 				F14E88951B4EECDB00177916 /* WelcomeViewController.swift in Sources */,
 				F14E886E1B4EE9EE00177916 /* AppDelegate.swift in Sources */,
 				F1B5B91B1B505559004FC7D0 /* HTTPHelper.swift in Sources */,
+				F1837E831B5262FA00C7DB90 /* SwiftyJSON.swift in Sources */,
 				F1B5B9201B5061BC004FC7D0 /* NavController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
