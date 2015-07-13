@@ -1,5 +1,6 @@
 
 import Foundation
+import FBSDKCoreKit
 
 enum HTTPRequestAuthType {
     case HTTPBasicAuth

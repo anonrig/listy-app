@@ -1,5 +1,6 @@
 
 import UIKit
+import FBSDKCoreKit
 
 class NavController: UINavigationController {
 

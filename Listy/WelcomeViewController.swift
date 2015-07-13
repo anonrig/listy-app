@@ -1,6 +1,7 @@
 
 import UIKit
 import Social // for facebook share
+import FBSDKShareKit
 
 class WelcomeViewController: UIViewController {
     
