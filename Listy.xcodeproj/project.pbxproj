@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F13A6A261B53E63F0099EB60 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E888E1B4EEA4900177916 /* FBSDKCoreKit.framework */; };
+		F13A6A271B53E63F0099EB60 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E88901B4EEA5200177916 /* FBSDKLoginKit.framework */; };
+		F13A6A281B53E63F0099EB60 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1875E101B52E47400D7D76C /* FBSDKShareKit.framework */; };
 		F14E886E1B4EE9EE00177916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E886D1B4EE9EE00177916 /* AppDelegate.swift */; };
 		F14E88701B4EE9EE00177916 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E886F1B4EE9EE00177916 /* LoginViewController.swift */; };
 		F14E88731B4EE9EE00177916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14E88711B4EE9EE00177916 /* Main.storyboard */; };
 		F14E88751B4EE9EE00177916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14E88741B4EE9EE00177916 /* Images.xcassets */; };
 		F14E88781B4EE9EE00177916 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14E88761B4EE9EE00177916 /* LaunchScreen.xib */; };
 		F14E88841B4EE9EE00177916 /* ListyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E88831B4EE9EE00177916 /* ListyTests.swift */; };
-		F14E888F1B4EEA4900177916 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E888E1B4EEA4900177916 /* FBSDKCoreKit.framework */; };
-		F14E88911B4EEA5200177916 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14E88901B4EEA5200177916 /* FBSDKLoginKit.framework */; };
 		F14E88951B4EECDB00177916 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E88941B4EECDA00177916 /* WelcomeViewController.swift */; };
 		F1837E831B5262FA00C7DB90 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1837E821B5262FA00C7DB90 /* SwiftyJSON.swift */; };
-		F1875E111B52E47400D7D76C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1875E101B52E47400D7D76C /* FBSDKShareKit.framework */; };
 		F1B5B91B1B505559004FC7D0 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */; };
 		F1B5B91D1B5055DE004FC7D0 /* KeyChainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */; };
 		F1B5B9201B5061BC004FC7D0 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91F1B5061BC004FC7D0 /* NavController.swift */; };
@@ -60,9 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1875E111B52E47400D7D76C /* FBSDKShareKit.framework in Frameworks */,
-				F14E88911B4EEA5200177916 /* FBSDKLoginKit.framework in Frameworks */,
-				F14E888F1B4EEA4900177916 /* FBSDKCoreKit.framework in Frameworks */,
+				F13A6A261B53E63F0099EB60 /* FBSDKCoreKit.framework in Frameworks */,
+				F13A6A271B53E63F0099EB60 /* FBSDKLoginKit.framework in Frameworks */,
+				F13A6A281B53E63F0099EB60 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,11 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/bcanvural/Documents/FacebookSDK,
-					/Users/anonrig/Documents/FacebookSDK,
-				);
+				FRAMEWORK_SEARCH_PATHS = /Users/bcanvural/Documents/FacebookSDK;
 				INFOPLIST_FILE = Listy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,11 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/bcanvural/Documents/FacebookSDK,
-					/Users/anonrig/Documents/FacebookSDK,
-				);
+				FRAMEWORK_SEARCH_PATHS = /Users/bcanvural/Documents/FacebookSDK;
 				INFOPLIST_FILE = Listy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
