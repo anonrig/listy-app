@@ -2,6 +2,7 @@
 import UIKit
 import Presentation
 import FBSDKLoginKit
+import AVFoundation
 
 class LoginViewController: UIViewController {
     @IBAction func connectPressed(sender: AnyObject) {
@@ -10,10 +11,69 @@ class LoginViewController: UIViewController {
     
     let httpHelper = HTTPHelper()
     var loginManager : FBSDKLoginManager = FBSDKLoginManager()
+    var avplayer: AVPlayer?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
         self.navigationController?.navigationBarHidden = true;
+        
+        var error:NSError?
+        
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, error: &error)
+        AVAudioSession.sharedInstance().setActive(true, error: &error)
+        //set up player
+        var movieURL : NSURL? = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("listy", ofType: "mp4")!)
+        var avAsset: AVAsset = AVAsset.assetWithURL(movieURL) as! AVAsset
+        var avPlayerItem = AVPlayerItem(asset: avAsset)
+        self.avplayer = AVPlayer(playerItem: avPlayerItem)
+        
+        var avPlayerLayer = AVPlayerLayer(player: self.avplayer)
+        avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        avPlayerLayer.frame = UIScreen.mainScreen().bounds
+        
+        var movieView = UIView(frame: self.view.frame)
+        movieView.layer.addSublayer(avPlayerLayer)
+        self.view.addSubview(movieView)
+        
+        //Config player
+        
+        self.avplayer?.seekToTime(kCMTimeZero)
+        self.avplayer?.volume = 0
+        self.avplayer?.actionAtItemEnd = AVPlayerActionAtItemEnd.None
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerStartPlaying", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerFinishedPlaying", name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
+        
+        var gradient = CAGradientLayer()
+        gradient.frame = UIScreen.mainScreen().bounds
+        
+        var color1 = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 0.5)
+        var color2 = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
+        
+        gradient.colors = [color1, color2, color1]
+        var gradientView = UIView(frame: self.view.frame)
+        gradientView.backgroundColor = color1
+        
+        self.view.addSubview(gradientView)
+        self.view.sendSubviewToBack(gradientView)
+        self.view.sendSubviewToBack(movieView)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.avplayer?.pause()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.avplayer?.play()
+    }
+    
+    func playerStartPlaying(){
+        self.avplayer?.play()
+    }
+    
+    func playerFinishedPlaying(){
+        self.avplayer?.seekToTime(kCMTimeZero)
     }
     
     func login(){
@@ -58,7 +118,7 @@ class LoginViewController: UIViewController {
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
-
+                
                 self.loginManager.logOut();
                 
                 return
@@ -68,9 +128,6 @@ class LoginViewController: UIViewController {
             
             var token:String = JSON(data:data)["token"].stringValue
             KeychainAccess.setPassword(token, account: "jwt-token", service: "KeyChainService")
-            
-            
-            
             
         })
     }
