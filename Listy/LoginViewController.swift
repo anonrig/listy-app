@@ -1,8 +1,8 @@
 
 import UIKit
-import Presentation
 import FBSDKLoginKit
 import AVFoundation
+import Pages
 
 class LoginViewController: UIViewController {
     @IBAction func connectPressed(sender: AnyObject) {
@@ -119,6 +119,27 @@ class LoginViewController: UIViewController {
             KeychainAccess.setPassword(token, account: "jwt-token", service: "KeyChainService")
             
         })
+    }
+    
+    @IBAction func takeATour(sender: AnyObject) {
+        var vc1 = UIViewController(); vc1.view.backgroundColor = UIColor(patternImage: processImage(forViewController: vc1, named: "tour1"))
+        var vc2 = UIViewController(); vc2.view.backgroundColor = UIColor(patternImage: processImage(forViewController: vc1, named: "tour2"))
+        var vc3 = UIViewController(); vc3.view.backgroundColor = UIColor(patternImage: processImage(forViewController: vc1, named: "tour3"))
+        var vc4 = UIViewController(); vc4.view.backgroundColor = UIColor(patternImage: processImage(forViewController: vc1, named: "tour4"))
+        var vc5 = UIViewController(); vc5.view.backgroundColor = UIColor(patternImage: processImage(forViewController: vc1, named: "tour5"))
+        
+        let pages = PagesController([vc1, vc2, vc3, vc4, vc5])
+        self.presentViewController(pages, animated: true) { () -> Void in
+            pages.goTo(0)
+        }
+    }
+    //Process the image so that it fits a view controllers size
+    func processImage(forViewController vc: UIViewController, named:String) -> UIImage{
+        UIGraphicsBeginImageContext(vc.view.frame.size)
+        UIImage(named: named)?.drawInRect(vc.view.bounds)
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
     
     override func didReceiveMemoryWarning() {
