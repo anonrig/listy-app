@@ -143,8 +143,5 @@ class WelcomeViewController: UIViewController {
         self.staticTextBottom.hidden = shouldHide
         self.navigationItem.rightBarButtonItem?.enabled = !shouldHide
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+
 }

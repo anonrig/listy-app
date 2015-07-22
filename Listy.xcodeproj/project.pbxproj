@@ -125,6 +125,7 @@
 				F14E886D1B4EE9EE00177916 /* AppDelegate.swift */,
 				F14E886F1B4EE9EE00177916 /* LoginViewController.swift */,
 				F14E88941B4EECDA00177916 /* WelcomeViewController.swift */,
+				F1E94B6C1B5FC910004EA5C2 /* CarouselViewController.swift */,
 				F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */,
 				F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */,
 				F1B5B91F1B5061BC004FC7D0 /* NavController.swift */,
@@ -133,7 +134,6 @@
 				F14E88741B4EE9EE00177916 /* Images.xcassets */,
 				F14E88761B4EE9EE00177916 /* LaunchScreen.xib */,
 				F14E886B1B4EE9EE00177916 /* Supporting Files */,
-				F1E94B6C1B5FC910004EA5C2 /* CarouselViewController.swift */,
 			);
 			path = Listy;
 			sourceTree = "<group>";

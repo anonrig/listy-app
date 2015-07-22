@@ -139,16 +139,4 @@ class LoginViewController: UIViewController {
         return vc
     }
     
-    //Process the image so that it fits a view controllers size
-    func processImage(forViewController vc: UIViewController, named:String) -> UIImage{
-        UIGraphicsBeginImageContext(vc.view.frame.size)
-        UIImage(named: named)?.drawInRect(vc.view.bounds)
-        var image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
