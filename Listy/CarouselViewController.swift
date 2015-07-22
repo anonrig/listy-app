@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Pages
 
 class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -10,7 +11,8 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var imageName: String?
     var bottomText: String?
-    var gr: UIGestureRecognizer?
+    var pages: PagesController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,28 +32,43 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func swipeleft(){
         println("swipeleft")
+        pages?.goTo(self.pageController.currentPage+1)
     }
     
     func swiperight(){
         println("swiperight")
+        pages?.goTo(self.pageController.currentPage-1)
     }
     
     //hardcoding page indices
     func setupView(){
         if(self.imageName == "tour1"){
             pageController.currentPage = 0
-            var gr: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeleft")
-            gr.direction = UISwipeGestureRecognizerDirection.Right
-            gr.delegate = self
-            self.view.addGestureRecognizer(gr)
+            addLeftGestureRecognizer()
         } else if(self.imageName == "tour2"){
             pageController.currentPage = 1
+            addLeftGestureRecognizer()
+            addRightGestureRecognizer()
         } else if(self.imageName == "tour3"){
             pageController.currentPage = 2
-            var gr: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swiperight")
-            gr.direction = UISwipeGestureRecognizerDirection.Left
-            gr.delegate = self
-            self.view.addGestureRecognizer(gr)
+            addRightGestureRecognizer()
         }
     }
+    
+    func addLeftGestureRecognizer(){
+        var gr: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeleft")
+        gr.direction = UISwipeGestureRecognizerDirection.Left
+        gr.delegate = self
+        self.view.addGestureRecognizer(gr)
+    }
+    func addRightGestureRecognizer(){
+        var gr: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swiperight")
+        gr.direction = UISwipeGestureRecognizerDirection.Right
+        gr.delegate = self
+        self.view.addGestureRecognizer(gr)
+    }
+    
+    
+    
+    
 }

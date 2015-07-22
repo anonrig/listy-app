@@ -128,6 +128,10 @@ class LoginViewController: UIViewController {
 
         let pages = PagesController([vc1,vc2,vc3])
         pages.showPageControl = false
+        pages.enableSwipe = false
+        vc1.pages = pages
+        vc2.pages = pages
+        vc3.pages = pages
         
         self.presentViewController(pages, animated: true) { () -> Void in
         }
