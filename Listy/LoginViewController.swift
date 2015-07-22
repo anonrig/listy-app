@@ -125,12 +125,11 @@ class LoginViewController: UIViewController {
         var vc1 = self.getCarouselViewController("tour1", bottomText: "This is view1!")
         var vc2 = self.getCarouselViewController("tour2", bottomText: "This is view1!")
         var vc3 = self.getCarouselViewController("tour3", bottomText: "This is view1!")
-        
-        
+
         let pages = PagesController([vc1,vc2,vc3])
         pages.showPageControl = false
+        
         self.presentViewController(pages, animated: true) { () -> Void in
-           // pages.goTo(0)
         }
     }
     
