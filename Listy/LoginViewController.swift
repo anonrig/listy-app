@@ -128,6 +128,7 @@ class LoginViewController: UIViewController {
         
         
         let pages = PagesController([vc1,vc2,vc3])
+        pages.showPageControl = false
         self.presentViewController(pages, animated: true) { () -> Void in
            // pages.goTo(0)
         }

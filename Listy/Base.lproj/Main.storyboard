@@ -87,6 +87,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="XU7-Qh-LGm">
+                                <rect key="frame" x="168" y="560" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -94,6 +97,7 @@
                     <connections>
                         <outlet property="imageView" destination="vmW-yC-ch9" id="sPx-5h-C0r"/>
                         <outlet property="label" destination="ki3-ld-8ns" id="urc-L6-T8J"/>
+                        <outlet property="pageController" destination="XU7-Qh-LGm" id="mru-Ej-C3d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZb-5v-MTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
