@@ -14,6 +14,11 @@ class CarouselViewController: UIViewController {
         super.viewDidLoad()
         self.imageView.image = UIImage(named: self.imageName!)
         self.label.text = self.bottomText
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        
+        var backgroundView = UIImageView(image: UIImage(named: "background.png"))
+        self.view.addSubview(backgroundView)
+        self.view.sendSubviewToBack(backgroundView)
+        
+      
     }
 }
