@@ -39,7 +39,7 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func swipeleft(){
-        if(self.pageIndex == (self.pages?.pagesCount)! - 1){//if it's the rightmost view
+        if(self.pageIndex == (self.pages?.pagesCount)! - 1 && !self.getStartedTriggered){//if it's the rightmost view
             performAnimations(SwipeAnimationType.GetStarted)
             self.getStartedTriggered = true
             return
