@@ -13,7 +13,6 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var staticTextBottom: UILabel!
     let httpHelper = HTTPHelper()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,5 +142,4 @@ class WelcomeViewController: UIViewController {
         self.staticTextBottom.hidden = shouldHide
         self.navigationItem.rightBarButtonItem?.enabled = !shouldHide
     }
-
 }

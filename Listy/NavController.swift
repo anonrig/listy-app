@@ -18,5 +18,4 @@ class NavController: UINavigationController {
             self.setViewControllers(NSArray(object: controller) as [AnyObject], animated: true)
         }
     }
-  
 }

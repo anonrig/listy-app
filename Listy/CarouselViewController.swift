@@ -1,5 +1,4 @@
 
-
 import UIKit
 import Pages
 
@@ -13,6 +12,7 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     var imageName: String?
     var bottomText: String?
     var pages: PagesController?
+    var pageIndex: Int?
     var getStartedTriggered = false
     
     enum SwipeAnimationType {
@@ -38,8 +38,7 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func swipeleft(){
-        println("swipeleft")
-        if(pages?.currentIndex==2){
+        if(self.pageIndex == (self.pages?.pagesCount)! - 1){//if it's the rightmost view
             performAnimations(SwipeAnimationType.GetStarted)
             self.getStartedTriggered = true
             return
@@ -48,7 +47,6 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func swiperight(){
-        println("swiperight")
         if(self.getStartedTriggered){
             performAnimations(SwipeAnimationType.Restore)
             self.getStartedTriggered = false
@@ -109,17 +107,13 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //hardcoding page indices
     func setupView(){
-        if(self.imageName == "tour1"){
+        if(self.pageIndex == 0){ //if it's the leftmost view, only add left swipe
             pageController.currentPage = 0
             addLeftGestureRecognizer()
-        } else if(self.imageName == "tour2"){
-            pageController.currentPage = 1
+        } else {
+            pageController.currentPage = self.pageIndex!
             addLeftGestureRecognizer()
             addRightGestureRecognizer()
-        } else if(self.imageName == "tour3"){
-            pageController.currentPage = 2
-            addRightGestureRecognizer()
-            addLeftGestureRecognizer()
         }
     }
     

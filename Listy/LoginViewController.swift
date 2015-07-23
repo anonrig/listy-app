@@ -34,7 +34,6 @@ class LoginViewController: UIViewController {
         movieView.layer.addSublayer(avPlayerLayer)
         self.view.addSubview(movieView)
         
-        
         self.avplayer?.seekToTime(kCMTimeZero)
         self.avplayer?.volume = 0
         self.avplayer?.actionAtItemEnd = AVPlayerActionAtItemEnd.None
@@ -122,9 +121,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func takeATour(sender: AnyObject) {
-        var vc1 = self.getCarouselViewController("tour1", bottomText: "This is view1!")
-        var vc2 = self.getCarouselViewController("tour2", bottomText: "This is view1!")
-        var vc3 = self.getCarouselViewController("tour3", bottomText: "This is view1!")
+        var vc1 = self.getCarouselViewController("tour1", bottomText: "This is view1!", pageIndex: 0)
+        var vc2 = self.getCarouselViewController("tour2", bottomText: "This is view1!", pageIndex: 1)
+        var vc3 = self.getCarouselViewController("tour3", bottomText: "This is view1!", pageIndex: 2)
 
         let pages = PagesController([vc1,vc2,vc3])
         pages.showPageControl = false
@@ -137,9 +136,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func getCarouselViewController(imageName: String, bottomText: String) -> CarouselViewController{
+    func getCarouselViewController(imageName: String, bottomText: String, pageIndex: Int) -> CarouselViewController{
         var vc = self.storyboard?.instantiateViewControllerWithIdentifier("CarouselViewController") as! CarouselViewController
-        vc.imageName = imageName; vc.bottomText = bottomText
+        vc.imageName = imageName; vc.bottomText = bottomText; vc.pageIndex = pageIndex
         return vc
     }
     
