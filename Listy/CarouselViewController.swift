@@ -20,7 +20,6 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
         case  Restore
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.image = UIImage(named: self.imageName!)
@@ -64,13 +63,14 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
         case .GetStarted:
             
             //label and pager moves down and fades out
-            UIView.animateWithDuration(2, animations: { () -> Void in
+            
+            UIView.animateWithDuration(0.3, delay:0.3, options:UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             
             self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: 100)
-            self.label.hidden = true
-            self.pageController.hidden = true
+            self.label.alpha = 0
+            self.pageController.alpha = 0
             self.pageController.frame = self.getRec(self.pageController.frame, moveX: 0, moveY: 100)
-            })
+            }, completion: nil)
             
             //button fade in
             self.getStartedBtn.alpha = 0
@@ -81,25 +81,24 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             }, completion: nil)
             
         case .Restore:
-            //label and pager moves up and fades in
-            UIView.animateWithDuration(2, animations: { () -> Void in
-                
-                self.pageController.hidden = false
-                self.pageController.frame = self.getRec(self.pageController.frame, moveX: 0, moveY: -100)
-                self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: -100)
-                self.label.hidden = false
-                
-            })
-            
+           
             //button fade in
             self.getStartedBtn.alpha = 0
             self.getStartedBtn.hidden = true
             
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.getStartedBtn.alpha = 1
                 }, completion: nil)
+            
+            //label and pager moves up and fades in
+            
+            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.pageController.alpha = 1
+                self.label.alpha = 1
+                self.pageController.frame = self.getRec(self.pageController.frame, moveX: 0, moveY: -100)
+                self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: -100)
+                }, completion:nil)
         }
-        
     }
     
     //given a frame, returns a CGRect with its origin point moved
@@ -136,8 +135,4 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
         gr.delegate = self
         self.view.addGestureRecognizer(gr)
     }
-    
-    
-    
-    
 }
