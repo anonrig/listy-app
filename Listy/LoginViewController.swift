@@ -132,8 +132,14 @@ class LoginViewController: UIViewController {
         vc2.pages = pages
         vc3.pages = pages
         
-        self.presentViewController(pages, animated: true) { () -> Void in
-        }
+        //segue from right to present the carousel
+        var transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromRight
+        self.view.window!.layer.addAnimation(transition, forKey: nil)
+        self.presentViewController(pages, animated: false, completion: nil)
     }
     
     func getCarouselViewController(imageName: String, bottomText: String, pageIndex: Int) -> CarouselViewController{

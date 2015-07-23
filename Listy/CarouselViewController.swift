@@ -112,6 +112,12 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             pageController.currentPage = 0
             addLeftGestureRecognizer()
         } else {
+            
+            //add an event listener to button only if it's the last view in carousel
+            if(self.pageIndex == (self.pages?.pagesCount)! - 1 ){
+                self.getStartedBtn.addTarget(self, action: "getStartedPressed", forControlEvents: UIControlEvents.TouchUpInside)
+            }
+            
             pageController.currentPage = self.pageIndex!
             addLeftGestureRecognizer()
             addRightGestureRecognizer()
@@ -133,6 +139,23 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func backPressed(){
         println("backpressed")
+        var transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        self.view.window!.layer.addAnimation(transition, forKey: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    func getStartedPressed(){
+        var transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromRight
+        self.view.window!.layer.addAnimation(transition, forKey: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage{
