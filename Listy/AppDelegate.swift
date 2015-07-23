@@ -9,11 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        var pageControl = UIPageControl.appearance()
-        pageControl.pageIndicatorTintColor = UIColor.grayColor() //pages we are not on
-        pageControl.currentPageIndicatorTintColor = UIColor.whiteColor() //page we are on
-        pageControl.backgroundColor = UIColor.clearColor()
-        
         //overriden for Facebook. This will get  [FBSDKAccessToken currentAccessToken] when user is logged in.
        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

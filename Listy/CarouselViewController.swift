@@ -147,12 +147,12 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             self.view.window!.layer.addAnimation(transition, forKey: nil)
             self.dismissViewControllerAnimated(false, completion: nil)
         } else {
+            self.pages?.previous()
             //Trigger Restore animation if get started button was presented before
             if(self.getStartedTriggered){
                 performAnimations(SwipeAnimationType.Restore)
                 self.getStartedTriggered = false
             }
-            self.pages?.previous()
         }
     }
     

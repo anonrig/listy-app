@@ -81,7 +81,6 @@ class LoginViewController: UIViewController {
                 
                 self.loginManager.logOut();
                 
-                println("error");
             } else {
                 if (result.grantedPermissions.contains("email")){
                     self.sendFBTokens(result.token.tokenString);
@@ -116,7 +115,6 @@ class LoginViewController: UIViewController {
             
             var token:String = JSON(data:data)["token"].stringValue
             KeychainAccess.setPassword(token, account: "jwt-token", service: "KeyChainService")
-            
         })
     }
     
