@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-yC-ch9">
-                                <rect key="frame" x="0.0" y="38" width="375" height="379"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="379"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ki3-ld-8ns">
                                 <rect key="frame" x="137" y="487" width="100" height="59"/>
@@ -98,6 +98,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZR-c1-UgX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Carousel" id="Zqi-TX-ESi"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -106,6 +112,7 @@
                         <outlet property="getStartedBtn" destination="KdO-6W-DyU" id="Lo0-DD-vsv"/>
                         <outlet property="imageView" destination="vmW-yC-ch9" id="sPx-5h-C0r"/>
                         <outlet property="label" destination="ki3-ld-8ns" id="urc-L6-T8J"/>
+                        <outlet property="navItem" destination="Zqi-TX-ESi" id="YXp-nq-Mxm"/>
                         <outlet property="pageController" destination="XU7-Qh-LGm" id="mru-Ej-C3d"/>
                     </connections>
                 </viewController>

@@ -8,6 +8,7 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var getStartedBtn: UIButton!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     var imageName: String?
     var bottomText: String?
@@ -63,23 +64,23 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             //label and pager moves down and fades out
             
             UIView.animateWithDuration(0.3, delay:0, options:UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            
-            self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: 100)
-            self.label.alpha = 0
-            self.pageController.alpha = 0
-            self.pageController.frame = self.getRec(self.pageController.frame, moveX: 0, moveY: 100)
-            }, completion: nil)
+                
+                self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: 100)
+                self.label.alpha = 0
+                self.pageController.alpha = 0
+                self.pageController.frame = self.getRec(self.pageController.frame, moveX: 0, moveY: 100)
+                }, completion: nil)
             
             //button fade in
             self.getStartedBtn.alpha = 0
             self.getStartedBtn.hidden = false
             
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            self.getStartedBtn.alpha = 1
-            }, completion: nil)
+                self.getStartedBtn.alpha = 1
+                }, completion: nil)
             
         case .Restore:
-           
+            
             //button fade in
             self.getStartedBtn.alpha = 0
             self.getStartedBtn.hidden = true
@@ -128,5 +129,27 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
         gr.direction = UISwipeGestureRecognizerDirection.Right
         gr.delegate = self
         self.view.addGestureRecognizer(gr)
+    }
+    
+    func backPressed(){
+        println("backpressed")
+    }
+    
+    func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage{
+        UIGraphicsBeginImageContext(CGSizeMake(width, height))
+        var thumbnailRect = CGRectMake(0, 0, 0, 0)
+        thumbnailRect.origin = CGPointMake(0, 0)
+        thumbnailRect.size.width = width
+        thumbnailRect.size.height = height
+        image.drawInRect(thumbnailRect)
+        var tempImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return tempImage
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let backBtn = UIBarButtonItem(image: self.resizeImage(UIImage(named: "black_arrow")!, width: 30, height: 30), style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed")
+        self.navItem.leftBarButtonItem = backBtn
     }
 }
