@@ -106,7 +106,6 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
         return CGRectMake(frame.origin.x + moveX, frame.origin.y + moveY, frame.width, frame.height)
     }
     
-    //hardcoding page indices
     func setupView(){
         if(self.pageIndex == 0){ //if it's the leftmost view, only add left swipe
             pageController.currentPage = 0
@@ -138,14 +137,23 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func backPressed(){
-        println("backpressed")
-        var transition = CATransition()
-        transition.duration = 0.3
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        self.view.window!.layer.addAnimation(transition, forKey: nil)
-        self.dismissViewControllerAnimated(false, completion: nil)
+        //animate to login view only if it's the first view. Otherwise, go to previous view in carousel
+        if(self.pageIndex == 0){
+            var transition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.type = kCATransitionPush
+            transition.subtype = kCATransitionFromLeft
+            self.view.window!.layer.addAnimation(transition, forKey: nil)
+            self.dismissViewControllerAnimated(false, completion: nil)
+        } else {
+            //Trigger Restore animation if get started button was presented before
+            if(self.getStartedTriggered){
+                performAnimations(SwipeAnimationType.Restore)
+                self.getStartedTriggered = false
+            }
+            self.pages?.previous()
+        }
     }
     
     func getStartedPressed(){
