@@ -64,7 +64,7 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             
             //label and pager moves down and fades out
             
-            UIView.animateWithDuration(0.3, delay:0.3, options:UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay:0, options:UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             
             self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: 100)
             self.label.alpha = 0
@@ -76,7 +76,7 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             self.getStartedBtn.alpha = 0
             self.getStartedBtn.hidden = false
             
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.getStartedBtn.alpha = 1
             }, completion: nil)
             
@@ -86,13 +86,13 @@ class CarouselViewController: UIViewController, UIGestureRecognizerDelegate {
             self.getStartedBtn.alpha = 0
             self.getStartedBtn.hidden = true
             
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.getStartedBtn.alpha = 1
                 }, completion: nil)
             
             //label and pager moves up and fades in
             
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.pageController.alpha = 1
                 self.label.alpha = 1
                 self.pageController.frame = self.getRec(self.pageController.frame, moveX: 0, moveY: -100)
