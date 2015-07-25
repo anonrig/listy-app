@@ -20,7 +20,8 @@
 		F1B5B91B1B505559004FC7D0 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */; };
 		F1B5B91D1B5055DE004FC7D0 /* KeyChainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */; };
 		F1B5B9201B5061BC004FC7D0 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B91F1B5061BC004FC7D0 /* NavController.swift */; };
-		F1E94B6D1B5FC910004EA5C2 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E94B6C1B5FC910004EA5C2 /* CarouselViewController.swift */; };
+		F1F8FFA31B63E9E6009DC339 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8FFA21B63E9E6009DC339 /* ContentViewController.swift */; };
+		F1F8FFA51B63EAA8009DC339 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8FFA41B63EAA8009DC339 /* ParentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,8 @@
 		F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
 		F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainAccess.swift; sourceTree = "<group>"; };
 		F1B5B91F1B5061BC004FC7D0 /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
-		F1E94B6C1B5FC910004EA5C2 /* CarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
+		F1F8FFA21B63E9E6009DC339 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		F1F8FFA41B63EAA8009DC339 /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +127,8 @@
 				F14E886D1B4EE9EE00177916 /* AppDelegate.swift */,
 				F14E886F1B4EE9EE00177916 /* LoginViewController.swift */,
 				F14E88941B4EECDA00177916 /* WelcomeViewController.swift */,
-				F1E94B6C1B5FC910004EA5C2 /* CarouselViewController.swift */,
+				F1F8FFA21B63E9E6009DC339 /* ContentViewController.swift */,
+				F1F8FFA41B63EAA8009DC339 /* ParentViewController.swift */,
 				F1B5B91A1B505559004FC7D0 /* HTTPHelper.swift */,
 				F1B5B91C1B5055DE004FC7D0 /* KeyChainAccess.swift */,
 				F1B5B91F1B5061BC004FC7D0 /* NavController.swift */,
@@ -319,7 +322,8 @@
 				F1B5B91D1B5055DE004FC7D0 /* KeyChainAccess.swift in Sources */,
 				F14E88951B4EECDB00177916 /* WelcomeViewController.swift in Sources */,
 				F14E886E1B4EE9EE00177916 /* AppDelegate.swift in Sources */,
-				F1E94B6D1B5FC910004EA5C2 /* CarouselViewController.swift in Sources */,
+				F1F8FFA31B63E9E6009DC339 /* ContentViewController.swift in Sources */,
+				F1F8FFA51B63EAA8009DC339 /* ParentViewController.swift in Sources */,
 				F1B5B91B1B505559004FC7D0 /* HTTPHelper.swift in Sources */,
 				F1837E831B5262FA00C7DB90 /* SwiftyJSON.swift in Sources */,
 				F1B5B9201B5061BC004FC7D0 /* NavController.swift in Sources */,

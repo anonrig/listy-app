@@ -2,7 +2,6 @@
 import UIKit
 import FBSDKLoginKit
 import AVFoundation
-import Pages
 
 class LoginViewController: UIViewController {
     @IBAction func connectPressed(sender: AnyObject) {
@@ -119,31 +118,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func takeATour(sender: AnyObject) {
-        var vc1 = self.getCarouselViewController("tour1", bottomText: "This is view1!", pageIndex: 0)
-        var vc2 = self.getCarouselViewController("tour2", bottomText: "This is view1!", pageIndex: 1)
-        var vc3 = self.getCarouselViewController("tour3", bottomText: "This is view1!", pageIndex: 2)
-
-        let pages = PagesController([vc1,vc2,vc3])
-        pages.showPageControl = false
-        pages.enableSwipe = false
-        vc1.pages = pages
-        vc2.pages = pages
-        vc3.pages = pages
-        
-        //segue from right to present the carousel
-        var transition = CATransition()
-        transition.duration = 0.3
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        self.view.window!.layer.addAnimation(transition, forKey: nil)
-        self.presentViewController(pages, animated: false, completion: nil)
-    }
-    
-    func getCarouselViewController(imageName: String, bottomText: String, pageIndex: Int) -> CarouselViewController{
-        var vc = self.storyboard?.instantiateViewControllerWithIdentifier("CarouselViewController") as! CarouselViewController
-        vc.imageName = imageName; vc.bottomText = bottomText; vc.pageIndex = pageIndex
-        return vc
+        self.navigationController?.performSegueWithIdentifier("LoginToTour", sender: self)
     }
     
 }

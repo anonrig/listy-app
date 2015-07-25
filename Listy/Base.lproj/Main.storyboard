@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7yE-J7-Gro">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7yE-J7-Gro">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -66,60 +66,6 @@
             </objects>
             <point key="canvasLocation" x="473.5" y="280.5"/>
         </scene>
-        <!--Carousel View Controller-->
-        <scene sceneID="k5I-bg-Nch">
-            <objects>
-                <viewController storyboardIdentifier="CarouselViewController" id="Gxy-Tg-JEu" customClass="CarouselViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qb8-lI-VIu"/>
-                        <viewControllerLayoutGuide type="bottom" id="IIF-NI-zDe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VQ3-KY-e8n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-yC-ch9">
-                                <rect key="frame" x="0.0" y="100" width="375" height="379"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ki3-ld-8ns">
-                                <rect key="frame" x="137" y="487" width="100" height="59"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="XU7-Qh-LGm">
-                                <rect key="frame" x="168" y="560" width="39" height="37"/>
-                            </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdO-6W-DyU">
-                                <rect key="frame" x="66" y="560" width="260" height="50"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Get Started" backgroundImage="take-tour">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZR-c1-UgX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Carousel" id="Zqi-TX-ESi"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="getStartedBtn" destination="KdO-6W-DyU" id="Lo0-DD-vsv"/>
-                        <outlet property="imageView" destination="vmW-yC-ch9" id="sPx-5h-C0r"/>
-                        <outlet property="label" destination="ki3-ld-8ns" id="urc-L6-T8J"/>
-                        <outlet property="navItem" destination="Zqi-TX-ESi" id="YXp-nq-Mxm"/>
-                        <outlet property="pageController" destination="XU7-Qh-LGm" id="mru-Ej-C3d"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bZb-5v-MTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="995.5" y="142.5"/>
-        </scene>
         <!--Nav Controller-->
         <scene sceneID="Jdr-UZ-33B">
             <objects>
@@ -133,11 +79,93 @@
                     </navigationBar>
                     <connections>
                         <segue destination="4cc-C6-IIm" kind="show" identifier="LoginToWelcome" id="ftF-zi-Ue2"/>
+                        <segue destination="cUw-SD-0yG" kind="show" identifier="LoginToTour" id="vCf-ys-UVF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kb-g8-PGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10" y="1128"/>
+        </scene>
+        <!--Carousel-->
+        <scene sceneID="BPd-er-hcO">
+            <objects>
+                <viewController storyboardIdentifier="ParentViewController" title="Carousel" id="cUw-SD-0yG" customClass="ParentViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="elR-Gb-7E6"/>
+                        <viewControllerLayoutGuide type="bottom" id="CVS-GB-ha6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GzT-u0-Nde">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AFv-ej-dZj">
+                                <rect key="frame" x="168" y="488" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pager" destination="AFv-ej-dZj" id="2eD-kN-Mya"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEV-ua-oya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16" y="1879"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="eXU-Pf-Lkf">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="CmL-eM-zOl" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibP-tp-fLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="2607"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="NoE-3E-b6R">
+            <objects>
+                <viewController storyboardIdentifier="ContentViewController" id="g87-sT-z3H" customClass="ContentViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mfA-Rz-UST"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ziq-Uf-bdl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lFa-Ot-Ttd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgz-NL-7P8">
+                                <rect key="frame" x="155" y="561" width="65" height="38"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybU-wb-Pur">
+                                <rect key="frame" x="166" y="532" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Vg0-tG-Pyo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CB6-4y-IPH">
+                                <rect key="frame" x="52" y="28" width="243" height="388"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="button" destination="xgz-NL-7P8" id="fS6-Pc-rxo"/>
+                        <outlet property="imageView" destination="CB6-4y-IPH" id="T8s-gA-F6g"/>
+                        <outlet property="label" destination="ybU-wb-Pur" id="wcM-9L-Bth"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvc-mR-gTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="437.5" y="1878.5"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="vcA-fw-0cx">
@@ -190,13 +218,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFD-d1-Quv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5" y="832.5"/>
+            <point key="canvasLocation" x="855.5" y="1142.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="button-purple" width="520" height="100"/>
         <image name="facebook-login" width="520" height="100"/>
         <image name="random-guy" width="230" height="230"/>
-        <image name="take-tour" width="520" height="100"/>
     </resources>
 </document>

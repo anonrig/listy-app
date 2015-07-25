@@ -56,12 +56,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Listy/FBSDKCoreKit.framework'
   install_framework 'Pods-Listy/FBSDKLoginKit.framework'
   install_framework 'Pods-Listy/FBSDKShareKit.framework'
-  install_framework 'Pods-Listy/Pages.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Listy/Bolts.framework'
   install_framework 'Pods-Listy/FBSDKCoreKit.framework'
   install_framework 'Pods-Listy/FBSDKLoginKit.framework'
   install_framework 'Pods-Listy/FBSDKShareKit.framework'
-  install_framework 'Pods-Listy/Pages.framework'
 fi

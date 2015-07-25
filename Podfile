@@ -4,7 +4,7 @@
 use_frameworks!
 
 target 'Listy' do
-pod 'Pages'
+
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
