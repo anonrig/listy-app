@@ -49,6 +49,11 @@ class LoginViewController: UIViewController {
         self.view.sendSubviewToBack(movieView)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.avplayer?.pause()
