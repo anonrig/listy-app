@@ -20,4 +20,9 @@ class ContentViewController: UIViewController {
         self.label.text = self.labelText
         self.button.hidden = self.buttonHidden
     }
+    
+    @IBAction func getStartedPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }
