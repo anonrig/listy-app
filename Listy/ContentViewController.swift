@@ -18,7 +18,6 @@ class ContentViewController: UIViewController {
 
         self.imageView.image = UIImage(named: self.imageFile)
         self.label.text = self.labelText
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         self.button.hidden = self.buttonHidden
     }
 }

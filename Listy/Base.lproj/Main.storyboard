@@ -135,6 +135,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eco-dd-HSv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgz-NL-7P8">
                                 <rect key="frame" x="155" y="561" width="65" height="38"/>
                                 <state key="normal" title="Button">
@@ -151,7 +154,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CB6-4y-IPH">
-                                <rect key="frame" x="52" y="28" width="243" height="388"/>
+                                <rect key="frame" x="66" y="28" width="243" height="388"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,6 +225,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="640" height="1136"/>
         <image name="button-purple" width="520" height="100"/>
         <image name="facebook-login" width="520" height="100"/>
         <image name="random-guy" width="230" height="230"/>
