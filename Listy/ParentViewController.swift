@@ -26,16 +26,16 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
         var viewControllers = NSArray(object: startVC)
         
         self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
-      
+        
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
         
-        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height)
+        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height-80)
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
         
-            self.view.bringSubviewToFront(self.pager)
+        self.view.bringSubviewToFront(self.pager)
         
     }
     
@@ -94,5 +94,5 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [AnyObject]) {
         self.pager.currentPage = (pendingViewControllers.first as! ContentViewController).pageIndex
     }
-
+    
 }

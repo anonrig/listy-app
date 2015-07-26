@@ -19,6 +19,8 @@ class ContentViewController: UIViewController {
         self.imageView.image = UIImage(named: self.imageFile)
         self.label.text = self.labelText
         self.button.hidden = self.buttonHidden
+        
+        self.view.backgroundColor = UIColor.clearColor()
     }
     
     @IBAction func getStartedPressed(sender: AnyObject) {
