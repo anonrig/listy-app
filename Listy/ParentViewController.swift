@@ -17,8 +17,8 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pageLabels = NSArray(objects: "This is view1", "This is view2", "This is view3")
-        self.pageImages = NSArray(objects: "tour1", "tour2", "tour3")
+        self.pageLabels = NSArray(objects: "Create a list that you want to share it\nwith your family and friends.", "Swipe left to see actions,\nfull swipe to mark as done.", "Let others know\nwhat you completed in an instant.")
+        self.pageImages = NSArray(objects: "tutorial1", "tour2", "tutorial3")
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
         
