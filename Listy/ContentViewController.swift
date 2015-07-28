@@ -64,7 +64,7 @@ class ContentViewController: UIViewController {
             
             //label and pager moves down and fades out
             
-            UIView.animateWithDuration(0.3, delay:0, options:UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay:0, options:UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 
                 self.label.frame = self.getRec(self.label.frame, moveX: 0, moveY: 100)
                 self.label.alpha = 0
@@ -76,7 +76,7 @@ class ContentViewController: UIViewController {
             self.button.alpha = 0
             self.button.hidden = false
             
-            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 self.button.alpha = 1
                 }, completion: nil)
             
@@ -86,13 +86,13 @@ class ContentViewController: UIViewController {
             self.button.alpha = 0
             self.button.hidden = true
             
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 self.button.alpha = 1
                 }, completion: nil)
             
             //label and pager moves up and fades in
             
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 self.pager.alpha = 1
                 self.label.alpha = 1
                 self.pager.frame = self.getRec(self.pager.frame, moveX: 0, moveY: -100)
