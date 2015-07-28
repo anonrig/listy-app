@@ -11,7 +11,7 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationItem.title = "Carousel"
         if (self.navigationController?.respondsToSelector("interactivePopGestureRecognizer") != nil) {
             self.navigationController?.interactivePopGestureRecognizer.enabled = false
@@ -24,7 +24,7 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
         var startVC = self.viewControllerAtIndex(0) as ContentViewController
         var viewControllers = NSArray(object: startVC)
         
-        self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
