@@ -47,6 +47,7 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
         vc.imageFile = self.pageImages[index] as! String
         vc.labelText = self.pageLabels[index] as! String
         vc.pageIndex = index
+        vc.pager = self.pager
         
         if(index == self.pageLabels.count-1){
             vc.isLastView = true
