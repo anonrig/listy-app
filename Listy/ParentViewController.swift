@@ -8,15 +8,11 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
     var pageImages: NSArray!
     
     @IBOutlet weak var pager: UIPageControl!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationItem.title = "Carousel"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
         self.pageLabels = NSArray(objects: "Create a list that you want to share it\nwith your family and friends.", "Swipe left to see actions,\nfull swipe to mark as done.", "Let others know\nwhat you completed in an instant.")
         self.pageImages = NSArray(objects: "tutorial1", "tour2", "tutorial3")
         
@@ -36,7 +32,10 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
         self.pageViewController.didMoveToParentViewController(self)
         
         self.view.bringSubviewToFront(self.pager)
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     func viewControllerAtIndex(index: Int) -> ContentViewController {
