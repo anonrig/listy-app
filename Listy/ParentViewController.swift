@@ -98,7 +98,7 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
     //turn off carousel on last page
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
         //Did we just transition to last view?
-        if((previousViewControllers.last as! ContentViewController).pageIndex == self.pageLabels.count-2){
+        if((pageViewController.viewControllers.first as! ContentViewController).pageIndex == self.pageLabels.count-1){
             //disable scroolview in UIPageViewControlelr
             for obj in pageViewController.view.subviews{
                 if(obj.isKindOfClass(UIScrollView)){
