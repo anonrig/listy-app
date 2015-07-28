@@ -49,7 +49,7 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
         vc.pageIndex = index
         
         if(index == self.pageLabels.count-1){
-            vc.buttonHidden = false
+            vc.isLastView = true
         }
         
         return vc
