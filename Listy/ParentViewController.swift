@@ -13,6 +13,9 @@ class ParentViewController: UIViewController, UIPageViewControllerDataSource, UI
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationItem.title = "Carousel"
+        if (self.navigationController?.respondsToSelector("interactivePopGestureRecognizer") != nil) {
+            self.navigationController?.interactivePopGestureRecognizer.enabled = false
+        }
         self.pageLabels = NSArray(objects: "Create a list that you want to share it\nwith your family and friends.", "Swipe left to see actions,\nfull swipe to mark as done.", "Let others know\nwhat you completed in an instant.")
         self.pageImages = NSArray(objects: "tutorial1", "tour2", "tutorial3")
         
