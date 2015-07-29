@@ -14,6 +14,7 @@ class ContentViewController: UIViewController {
     var pager: UIPageControl!
     var getStartedTriggered = false
     var pageViewController: UIPageViewController! //for re-enabling carousel's disabled scrolling
+    var previousVC: ContentViewController? //set if this is the last view
     
     enum SwipeAnimationType {
         case GetStarted
@@ -48,13 +49,21 @@ class ContentViewController: UIViewController {
         if(self.getStartedTriggered == true){
             self.performAnimations(.Restore)
             self.getStartedTriggered = false
-            //restore Carousel's scrolling
-            //it was disabled before transitioning to this view
-            for obj in self.pageViewController.view.subviews{
-                if(obj.isKindOfClass(UIScrollView)){
-                    var scrollView = obj as! UIScrollView
-                    scrollView.scrollEnabled = true
+        } else {
+            self.pager.currentPage = self.pageIndex - 1
+            self.pageViewController.setViewControllers(NSArray(object: self.previousVC!) as [AnyObject], direction: UIPageViewControllerNavigationDirection.Reverse, animated: true, completion: { (completed: Bool) -> Void in
+                if(completed){
+                              self.enableCarouselScroll(true)
                 }
+            })
+        }
+    }
+    
+    func enableCarouselScroll(shouldEnable: Bool){
+        for obj in self.pageViewController.view.subviews{
+            if(obj.isKindOfClass(UIScrollView)){
+                var scrollView = obj as! UIScrollView
+                scrollView.scrollEnabled = shouldEnable
             }
         }
     }
